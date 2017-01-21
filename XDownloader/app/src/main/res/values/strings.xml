@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">X Downloader</string>
+    <string name="app_name">XDownloader</string>
+    <string name="text_copyright">X Downloader 2017</string>
+    <string name="text_title_guide1">Fast</string>
+    <string name="text_description_guide1">Separate the download process into multiple instances</string>
+    <string name="text_title_guide2">Speed limiter</string>
+    <string name="text_description_guide2">Limit the speed to avoid making exhausted for the bandwidth</string>
+    <string name="text_title_guide3">Download queue</string>
+    <string name="text_description_guide3">Make plan for file downloading by creating the queue</string>
+    <string name="text_title_guide4">Network switch</string>
+    <string name="text_description_guide4">Files can be assigned to be downloaded only by cellular data or Wi-Fi</string>
 </resources>
