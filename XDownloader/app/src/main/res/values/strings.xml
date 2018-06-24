@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">XDownloader</string>
-    <string name="text_copyright">X Downloader 2017</string>
+    <string name="text_copyright">X Downloader 2018</string>
     <string name="text_title_guide1">Fast</string>
     <string name="text_description_guide1">Separate the download process into multiple instances</string>
     <string name="text_title_guide2">Speed limiter</string>
