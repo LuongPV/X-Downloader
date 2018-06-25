@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class SplashActivity : BaseActivity(), SplashContract.SplashView {
     @Inject
-    lateinit var splashPresenter: SplashContract.SplashPresenter
+    lateinit var splashPresenter: SplashContract.SplashPresenter<SplashContract.SplashView>
 
     override fun moveToGuideScreen() {
         startActivity(Intent(this, GuideActivity::class.java))

@@ -13,7 +13,7 @@ interface SplashContract {
 
     }
 
-    interface SplashPresenter : MVPPresenter<SplashContract.SplashView> {
+    interface SplashPresenter<in V : SplashContract.SplashView> : MVPPresenter<V> {
 
         fun runLoading()
 

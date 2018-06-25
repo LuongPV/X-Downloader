@@ -6,7 +6,7 @@ import com.pv.xdownloader.data.preference.Preference
 import com.pv.xdownloader.ui.UIConstant
 import com.pv.xdownloader.ui.base.MVPPresenterImpl
 
-class SplashPresenterImpl(private val handler: Handler, private val preference: Preference) : MVPPresenterImpl<SplashContract.SplashView>(), SplashContract.SplashPresenter {
+class SplashPresenterImpl(private val handler: Handler, private val preference: Preference) : MVPPresenterImpl<SplashContract.SplashView>(), SplashContract.SplashPresenter<SplashContract.SplashView> {
 
     override fun runLoading() {
         handler.postDelayed({
