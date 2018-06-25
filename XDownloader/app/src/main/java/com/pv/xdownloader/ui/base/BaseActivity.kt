@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.kaopiz.kprogresshud.KProgressHUD
+import com.pv.xdownloader.di.component.ActivityComponent
 import com.pv.xdownloader.di.component.DaggerActivityComponent
 import com.pv.xdownloader.di.module.ActivityModule
 import com.pv.xdownloader.ui.UIConstant
@@ -13,13 +14,20 @@ abstract class BaseActivity : AppCompatActivity() {
     @Inject
     lateinit var progressDialog: KProgressHUD
 
+    private lateinit var activityComponent: ActivityComponent
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initInjector()
     }
 
     private fun initInjector() {
-        DaggerActivityComponent.builder().activityModule(ActivityModule(this)).build().inject(this)
+        activityComponent = DaggerActivityComponent.builder().activityModule(ActivityModule(this)).build()
+        activityComponent.inject(this)
+    }
+
+    fun getActivityComponent(): ActivityComponent {
+        return activityComponent
     }
 
     fun showLoading() {

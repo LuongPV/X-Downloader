@@ -1,8 +1,11 @@
 package com.pv.xdownloader.ui.splash
 
+import com.pv.xdownloader.ui.base.MVPPresenter
+import com.pv.xdownloader.ui.base.MVPView
+
 interface SplashContract {
 
-    interface SplashView {
+    interface SplashView : MVPView {
 
         fun moveToGuideScreen()
 
@@ -10,7 +13,7 @@ interface SplashContract {
 
     }
 
-    interface SplashPresenter {
+    interface SplashPresenter : MVPPresenter<SplashContract.SplashView> {
 
         fun runLoading()
 

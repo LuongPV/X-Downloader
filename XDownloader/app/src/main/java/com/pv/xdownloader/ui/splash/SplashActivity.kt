@@ -6,8 +6,12 @@ import com.pv.xdownloader.R
 import com.pv.xdownloader.ui.base.BaseActivity
 import com.pv.xdownloader.ui.home.HomeActivity
 import com.pv.xdownloader.ui.tour.GuideActivity
+import javax.inject.Inject
 
 class SplashActivity : BaseActivity(), SplashContract.SplashView {
+    @Inject
+    lateinit var splashPresenter: SplashContract.SplashPresenter
+
     override fun moveToGuideScreen() {
         startActivity(Intent(this, GuideActivity::class.java))
         finish()
@@ -22,6 +26,8 @@ class SplashActivity : BaseActivity(), SplashContract.SplashView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        // TODO Use MVP to change screen
+        getActivityComponent().inject(this)
+        splashPresenter.injectView(this)
+        splashPresenter.runLoading()
     }
 }
