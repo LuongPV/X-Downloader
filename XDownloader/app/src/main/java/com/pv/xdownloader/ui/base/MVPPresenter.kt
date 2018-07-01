@@ -1,6 +1,6 @@
 package com.pv.xdownloader.ui.base
 
-interface MVPPresenter<in V : MVPView> {
+interface MVPPresenter<V : MVPView> {
 
     fun injectView(mvpView: V)
 

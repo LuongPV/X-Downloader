@@ -4,6 +4,7 @@ import android.app.Application
 import com.pv.xdownloader.data.DataConstant
 import com.pv.xdownloader.di.component.ApplicationComponent
 import com.pv.xdownloader.di.component.DaggerApplicationComponent
+import com.pv.xdownloader.di.module.ApplicationModule
 import com.pv.xdownloader.di.module.NetModule
 
 class XDownloaderApplication : Application() {
@@ -15,7 +16,14 @@ class XDownloaderApplication : Application() {
     }
 
     private fun initializeInjector() {
-        applicationComponent = DaggerApplicationComponent.builder().netModule(NetModule(DataConstant.BASE_SERVER_URL)).build()
+        applicationComponent = DaggerApplicationComponent.builder()
+                .applicationModule(ApplicationModule(this))
+                .netModule(NetModule(DataConstant.BASE_SERVER_URL))
+                .build()
+    }
+
+    fun getApplicationComponent(): ApplicationComponent {
+        return applicationComponent
     }
 
 }

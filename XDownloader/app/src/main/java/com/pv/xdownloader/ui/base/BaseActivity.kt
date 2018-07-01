@@ -8,6 +8,7 @@ import com.pv.xdownloader.di.component.ActivityComponent
 import com.pv.xdownloader.di.component.DaggerActivityComponent
 import com.pv.xdownloader.di.module.ActivityModule
 import com.pv.xdownloader.ui.UIConstant
+import com.pv.xdownloader.ui.XDownloaderApplication
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -22,7 +23,10 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun initInjector() {
-        activityComponent = DaggerActivityComponent.builder().activityModule(ActivityModule(this)).build()
+        activityComponent = DaggerActivityComponent.builder()
+                .activityModule(ActivityModule(this))
+                .applicationComponent((application as XDownloaderApplication).getApplicationComponent())
+                .build()
         activityComponent.inject(this)
     }
 
