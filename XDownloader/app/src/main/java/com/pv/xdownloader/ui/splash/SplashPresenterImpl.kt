@@ -1,6 +1,5 @@
 package com.pv.xdownloader.ui.splash
 
-import com.pv.xdownloader.data.DataConstant
 import com.pv.xdownloader.data.preference.Preference
 import com.pv.xdownloader.ui.UIConstant
 import com.pv.xdownloader.ui.base.MVPPresenterImpl
@@ -12,7 +11,7 @@ class SplashPresenterImpl(private val preference: Preference) : MVPPresenterImpl
     override fun runLoading() {
         Completable.create { emitter -> emitter.onComplete() }.delay(UIConstant.SPLASH_LOADING_TIME, TimeUnit.MILLISECONDS)
                 .subscribe {
-                    if (preference.getNativePref().getBoolean(DataConstant.PREF_GUIDE_COMPLETE, false)) {
+                    if (preference.isGuideCompleted()) {
                         getMVPView().moveToHomeScreen()
                     } else {
                         getMVPView().moveToGuideScreen()

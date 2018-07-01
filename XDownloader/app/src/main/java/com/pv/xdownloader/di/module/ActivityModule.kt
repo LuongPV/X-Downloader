@@ -6,6 +6,8 @@ import com.pv.xdownloader.data.preference.Preference
 import com.pv.xdownloader.di.qualifier.ActivityContext
 import com.pv.xdownloader.di.scope.ActivityScope
 import com.pv.xdownloader.ui.UIConstant
+import com.pv.xdownloader.ui.guide.GuideContract
+import com.pv.xdownloader.ui.guide.GuidePresenterImpl
 import com.pv.xdownloader.ui.splash.SplashContract
 import com.pv.xdownloader.ui.splash.SplashPresenterImpl
 import dagger.Module
@@ -33,6 +35,11 @@ class ActivityModule(private val activityContext: Context) {
     @ActivityScope
     fun provideSplashPresenter(preference: Preference): SplashContract.SplashPresenter<SplashContract.SplashView> {
         return SplashPresenterImpl(preference)
+    }
+
+    @Provides
+    fun provideGuidePresenter(preference: Preference): GuideContract.GuidePresenter<GuideContract.GuideView> {
+        return GuidePresenterImpl(preference)
     }
 
 }

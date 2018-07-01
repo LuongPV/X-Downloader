@@ -1,9 +1,9 @@
 package com.pv.xdownloader.data.preference
 
-import android.content.SharedPreferences
-
 interface Preference {
 
-    fun getNativePref(): SharedPreferences
+    fun isGuideCompleted(): Boolean
+
+    fun setGuideComplete(isComplete: Boolean): Boolean
 
 }

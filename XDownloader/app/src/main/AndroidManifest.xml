@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.home.HomeActivity" />
-        <activity android:name=".ui.tour.GuideActivity" />
+        <activity android:name=".ui.guide.GuideActivity" />
     </application>
 
 </manifest>

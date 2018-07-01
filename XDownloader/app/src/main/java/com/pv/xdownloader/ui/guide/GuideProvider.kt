@@ -1,4 +1,4 @@
-package com.pv.xdownloader.ui.tour
+package com.pv.xdownloader.ui.guide
 
 import com.pv.xdownloader.R
 
