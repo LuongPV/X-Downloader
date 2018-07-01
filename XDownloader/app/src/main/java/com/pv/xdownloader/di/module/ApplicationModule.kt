@@ -7,6 +7,8 @@ import com.pv.xdownloader.data.network.ApiClient
 import com.pv.xdownloader.data.network.DefaultApiClient
 import com.pv.xdownloader.data.preference.DefaultPreference
 import com.pv.xdownloader.data.preference.Preference
+import com.pv.xdownloader.data.storage.DefaultStorageHelper
+import com.pv.xdownloader.data.storage.StorageHelper
 import com.pv.xdownloader.di.qualifier.ApplicationContext
 import dagger.Module
 import dagger.Provides
@@ -37,6 +39,12 @@ class ApplicationModule(private val context: Context) {
     @Singleton
     fun provideApiClient(apiClient: DefaultApiClient): ApiClient {
         return apiClient
+    }
+
+    @Provides
+    @Singleton
+    fun provideStorageHelper(): StorageHelper {
+        return DefaultStorageHelper()
     }
 
 }

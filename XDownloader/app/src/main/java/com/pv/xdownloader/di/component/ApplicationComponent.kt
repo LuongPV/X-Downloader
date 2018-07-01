@@ -1,6 +1,8 @@
 package com.pv.xdownloader.di.component
 
+import com.pv.xdownloader.data.network.ApiClient
 import com.pv.xdownloader.data.preference.Preference
+import com.pv.xdownloader.data.storage.StorageHelper
 import com.pv.xdownloader.di.module.ApplicationModule
 import com.pv.xdownloader.di.module.NetModule
 import com.pv.xdownloader.ui.XDownloaderApplication
@@ -14,6 +16,10 @@ interface ApplicationComponent {
     fun inject(xDownloaderApplication: XDownloaderApplication)
 
     fun providePreference(): Preference
+
+    fun provideApi(): ApiClient
+
+    fun provideStorage(): StorageHelper
 
 
 

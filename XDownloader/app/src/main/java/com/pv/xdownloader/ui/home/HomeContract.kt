@@ -1,5 +1,6 @@
 package com.pv.xdownloader.ui.home
 
+import com.pv.xdownloader.data.model.DownloadInfo
 import com.pv.xdownloader.ui.base.MVPPresenter
 import com.pv.xdownloader.ui.base.MVPView
 
@@ -10,6 +11,8 @@ interface HomeContract {
 
         fun showAddNewDownloadDialog()
 
+        fun notifyDownloadDone(downloadInfo: DownloadInfo)
+
     }
 
     interface HomePresenter<V : HomeView> : MVPPresenter<V> {
@@ -17,6 +20,8 @@ interface HomeContract {
         fun loadBottomMenu()
 
         fun addNewDownload()
+
+        fun startDownload(downloadInfo: DownloadInfo)
 
     }
 

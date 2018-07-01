@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Gravity
 import com.pv.xdownloader.R
+import com.pv.xdownloader.data.model.DownloadInfo
 import com.pv.xdownloader.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.layout_top_bar.*
+import java.io.File
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity(), HomeContract.HomeView {
@@ -30,8 +32,18 @@ class HomeActivity : BaseActivity(), HomeContract.HomeView {
     }
 
     override fun showAddNewDownloadDialog() {
-        val dialog = AddNewDownloadDialog(this)
+        val dialog = AddNewDownloadDialog(this, object: AddNewDownloadDialog.Callback {
+
+            override fun onDownloadStarted(downloadInfo: DownloadInfo) {
+                homePresenter.startDownload(downloadInfo)
+            }
+
+        })
         dialog.show()
+    }
+
+    override fun notifyDownloadDone(downloadInfo: DownloadInfo) {
+        showMessage("Download done file name = ${File(downloadInfo.url).name}")
     }
 
     fun openLeftMenu() {

@@ -1,11 +1,17 @@
 package com.pv.xdownloader.ui.home
 
 import android.content.Context
+import android.util.Log
 import com.pv.xdownloader.R
+import com.pv.xdownloader.data.model.DownloadInfo
+import com.pv.xdownloader.data.network.ApiClient
 import com.pv.xdownloader.data.preference.Preference
+import com.pv.xdownloader.data.storage.StorageHelper
 import com.pv.xdownloader.ui.base.MVPPresenterImpl
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
-class HomePresenterImpl(val preference: Preference, val context: Context) : MVPPresenterImpl<HomeContract.HomeView>(), HomeContract.HomePresenter<HomeContract.HomeView> {
+class HomePresenterImpl(val preference: Preference, val context: Context, val apiClient: ApiClient, val storageHelper: StorageHelper) : MVPPresenterImpl<HomeContract.HomeView>(), HomeContract.HomePresenter<HomeContract.HomeView> {
     override fun loadBottomMenu() {
         val notStartedCount = preference.getNotStartedCount()
         val downloadingCount = preference.getDownloadingCount()
@@ -24,6 +30,21 @@ class HomePresenterImpl(val preference: Preference, val context: Context) : MVPP
 
     override fun addNewDownload() {
         getMVPView().showAddNewDownloadDialog()
+    }
+
+    override fun startDownload(downloadInfo: DownloadInfo) {
+        apiClient.downloadFile(downloadInfo)
+                .map { responseBody ->
+                    storageHelper.saveFile(downloadInfo, responseBody.bytes())
+                    responseBody
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    getMVPView().notifyDownloadDone(downloadInfo)
+                }, { error ->
+                    Log.e("TAG", "Error -> $error")
+                })
     }
 
 }
