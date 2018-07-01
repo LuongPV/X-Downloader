@@ -1,7 +1,6 @@
 package com.pv.xdownloader.di.module
 
 import android.content.Context
-import android.os.Handler
 import com.kaopiz.kprogresshud.KProgressHUD
 import com.pv.xdownloader.data.preference.Preference
 import com.pv.xdownloader.di.qualifier.ActivityContext
@@ -31,14 +30,9 @@ class ActivityModule(private val activityContext: Context) {
     }
 
     @Provides
-    fun provideHandler(): Handler {
-        return Handler()
-    }
-
-    @Provides
     @ActivityScope
-    fun provideSplashPresenter(handler: Handler, preference: Preference): SplashContract.SplashPresenter<SplashContract.SplashView> {
-        return SplashPresenterImpl(handler, preference)
+    fun provideSplashPresenter(preference: Preference): SplashContract.SplashPresenter<SplashContract.SplashView> {
+        return SplashPresenterImpl(preference)
     }
 
 }
