@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
     android:orientation="horizontal">
 
     <ImageView
@@ -12,14 +13,20 @@
         android:src="@mipmap/ic_drawer" />
 
     <TextView
+        android:textStyle="bold"
+        android:id="@+id/tv_title"
         android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/text_bottom_menu_all"
         android:textColor="@color/white"
-        android:textSize="@dimen/font_medium" />
+        android:textSize="@dimen/font_large" />
 
-    <include
-        layout="@layout/layout_bar_item"
+    <ImageView
+        android:id="@+id/iv_add_download_task"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:src="@mipmap/ic_add_download_task" />
 </LinearLayout>

@@ -9,4 +9,20 @@
     <string name="text_description_guide3">Make plan for file downloading by creating the queue</string>
     <string name="text_title_guide4">Network switch</string>
     <string name="text_description_guide4">Files can be assigned to be downloaded only by cellular data or Wi-Fi</string>
+    <!-- Bottom menu items -->
+    <string name="text_bottom_menu_all">All</string>
+    <string name="text_bottom_menu_not_started">Not Started</string>
+    <string name="text_bottom_menu_downloading">Downloading</string>
+    <string name="text_bottom_menu_stop">Stop</string>
+    <string name="text_bottom_menu_downloaded">Downloaded</string>
+    <string name="no_downloads_found_click">No downloads found, click</string>
+    <string name="to_add_a_new_download">to add a new download</string>
+    <string name="new_file_download">New file download</string>
+    <string name="url">Url</string>
+    <string name="file_size">File size:</string>
+    <string name="file_location">File location</string>
+    <string name="open_automatically_after_downloaded">Open automatically after downloaded</string>
+    <string name="start_download">Start download</string>
+    <string name="add_to_queue">Add to queue</string>
+    <string name="download_later">Download later</string>
 </resources>

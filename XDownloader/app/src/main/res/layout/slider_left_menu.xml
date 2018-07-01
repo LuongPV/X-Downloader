@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/v_background"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@mipmap/bg_logo_leftmenu"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:contentDescription="@null"
+        android:src="@mipmap/ic_logo_leftmenu"
+        app:layout_constraintBottom_toBottomOf="@id/v_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_background">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.pv.xdownloader.ui.commonview.ValueSliderView
+                android:id="@+id/slider_number_threads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:slider_number="8"
+                app:slider_name="Number of threads: " />
+
+            <com.pv.xdownloader.ui.commonview.ValueSliderView
+                android:id="@+id/slider_speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/slider_number_threads"
+                app:slider_number="10"
+                app:slider_name="Speed limited: " />
+
+            <com.pv.xdownloader.ui.commonview.ValueSliderView
+                android:id="@+id/slider_number_downloads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/slider_speed"
+                app:slider_number="5"
+                app:slider_name="Number of downloads: " />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -6,4 +6,12 @@ interface Preference {
 
     fun setGuideComplete(isComplete: Boolean): Boolean
 
+    fun getDownloadingCount(): Int
+
+    fun getDownloadedCount(): Int
+
+    fun getNotStartedCount(): Int
+
+    fun getStopCount(): Int
+
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ValueSliderView">`
+        <attr name="slider_name" format="string" />
+        <attr name="slider_number" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="BottomMenuItemView">`
+        <attr name="bottom_menu_name" format="string" />
+        <attr name="bottom_menu_number" format="integer" />
+    </declare-styleable>
+
+
+</resources>

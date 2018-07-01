@@ -8,6 +8,8 @@ import com.pv.xdownloader.di.scope.ActivityScope
 import com.pv.xdownloader.ui.UIConstant
 import com.pv.xdownloader.ui.guide.GuideContract
 import com.pv.xdownloader.ui.guide.GuidePresenterImpl
+import com.pv.xdownloader.ui.home.HomeContract
+import com.pv.xdownloader.ui.home.HomePresenterImpl
 import com.pv.xdownloader.ui.splash.SplashContract
 import com.pv.xdownloader.ui.splash.SplashPresenterImpl
 import dagger.Module
@@ -40,6 +42,11 @@ class ActivityModule(private val activityContext: Context) {
     @Provides
     fun provideGuidePresenter(preference: Preference): GuideContract.GuidePresenter<GuideContract.GuideView> {
         return GuidePresenterImpl(preference)
+    }
+
+    @Provides
+    fun provideHomePresenter(preference: Preference): HomeContract.HomePresenter<HomeContract.HomeView> {
+        return HomePresenterImpl(preference, activityContext)
     }
 
 }

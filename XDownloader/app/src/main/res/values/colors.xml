@@ -6,4 +6,9 @@
     <color name="white">#ffffff</color>
     <color name="blue_bold">#7996B3</color>
     <color name="blue_light">#8EA1B4</color>
+    <color name="menu_all">#2B91F5</color>
+    <color name="menu_not_started">#E5CC00</color>
+    <color name="menu_downloading">#00951F</color>
+    <color name="menu_downloaded">#204F80</color>
+    <color name="menu_stop">#B40000</color>
 </resources>
